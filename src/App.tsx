@@ -1,5 +1,5 @@
 import { FormEvent, MouseEvent as ReactMouseEvent, ReactNode, useCallback, useEffect, useRef, useState } from "react";
-import profilePhoto from "./imports/1-1.png";
+import profilePhoto from "/1-1.png";
 import heroDecoration from "./imports/hero-decoration.svg";
 import heroDecorationMd from "./imports/hero-decoration-md.svg";
 import projectAllthebest from "./imports/project-allthebest.webp";
