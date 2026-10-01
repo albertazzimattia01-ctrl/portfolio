@@ -404,7 +404,7 @@ export default function App() {
     <div className="page-surface min-h-screen text-ink selection:bg-ink selection:text-page">
       <SideNav />
       <main className="overflow-hidden pt-16 md:ml-24 md:pt-0">
-        <section className="relative flex h-[calc(100svh-4rem)] scroll-mt-16 flex-col justify-between overflow-hidden bg-intro px-5 py-4 text-page sm:px-10 md:h-svh md:scroll-mt-0 md:rounded-b-[10px] md:px-16 md:py-8 lg:px-24 lg:py-10" id="intro">
+        <section className="relative flex min-h-[calc(100svh-4rem)] scroll-mt-16 flex-col justify-between overflow-hidden bg-intro px-5 py-4 text-page sm:px-10 md:min-h-svh md:scroll-mt-0 md:rounded-b-[10px] md:px-16 md:py-8 lg:px-24 lg:py-10" id="intro">
           <div className="border-b border-page pb-4">
             <div className="overflow-hidden">
               <div className={`skills-track flex min-w-max items-center ${isSkillsPaused ? "skills-paused" : ""}`}>
@@ -441,8 +441,7 @@ export default function App() {
             <div className="flex items-center">
               <div className="min-w-0 flex-1 pr-6">
                 <ProfileIntro />
-                <h1 className="font-anton mt-5 w-full max-w-none text-[72px] min-[375px]:text-[clamp(5.3125rem,17vw,8rem)] font-normal leading-[0.75] tracking-[0] text-accent md:mt-8 md:text-[min(12vw,calc((100svh-500px)/2))] lg:text-[min(12vw,calc((100svh-520px)/2))] min-[1360px]:text-[15vw]">
-                  <span className="fg-inline-bold" data-fge-id="fge-237">SIMPLE, BETTER</span>
+<h1 className="font-anton mt-5 w-full max-w-none text-[72px] min-[375px]:text-[clamp(5.3125rem,17vw,8rem)] font-normal leading-[0.75] tracking-[0] text-accent md:mt-8 md:text-[max(5rem,min(12vw,calc((100svh-500px)/2)))] lg:text-[max(5rem,min(12vw,calc((100svh-520px)/2)))] min-[1360px]:text-[max(5rem,min(15vw,calc((100svh-480px)/1.5)))]">                  <span className="fg-inline-bold" data-fge-id="fge-237">SIMPLE, BETTER</span>
                 </h1>
                 <p className="font-montserrat mt-6 max-w-2xl text-[18px] leading-relaxed text-[#fefefe] md:mt-10">
                   Nei miei progetti cerco di bilanciare al meglio usabilità ed estetica, per creare interfacce intuitive e visivamente coinvolgenti.
