@@ -1,7 +1,7 @@
 {
-  "description": "Showcase your UX/UI design projects and personal story with a sleek one-page portfolio featuring a contact form and easy navigation.",
+  "description": "Portfolio di Mattia Albertazzi, UX/UI Designer. Scopri i miei progetti, competenze e contattami per collaborazioni.",
   "robots": {
-    "index": false
+    "index": true
   },
   "accessibility": {
     "addBypassLinks": false,
