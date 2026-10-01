@@ -232,7 +232,7 @@ function SideNav() {
     const section = document.getElementById(id);
     if (!section) return;
 
-    const headerOffset = window.matchMedia("(max-width: 767px)").matches ? 64 : 0;
+    const headerOffset = window.matchMedia("(max-width: 1023px)").matches ? 64 : 0;
     const destination = section.getBoundingClientRect().top + window.scrollY - headerOffset;
 
     window.history.pushState(null, "", href);
@@ -240,11 +240,11 @@ function SideNav() {
   };
 
   return (
-    <aside className="fixed inset-x-0 top-0 z-50 flex h-16 items-center justify-between bg-nav px-5 text-ink md:inset-y-0 md:right-auto md:h-auto md:w-24 md:flex-col md:px-0 md:py-8">
+    <aside className="fixed inset-x-0 top-0 z-50 flex h-16 items-center justify-between bg-nav px-5 text-ink lg:inset-y-0 lg:right-auto lg:h-auto lg:w-24 lg:flex-col lg:px-0 lg:py-8">
       <a aria-label="Torna all'intro" className="grid size-10 place-items-center rounded-full border border-ink text-sm font-semibold" href="#intro">
         MA
       </a>
-      <nav aria-label="Navigazione principale" className="hidden md:block">
+      <nav aria-label="Navigazione principale" className="hidden lg:block">
         <ul className="flex flex-col items-center gap-5">
           {navItems.map(([label, href]) => {
             const isActive = activeSection === href.slice(1);
@@ -269,7 +269,7 @@ function SideNav() {
           })}
         </ul>
       </nav>
-      <span className="hidden text-center font-montserrat text-[12px] text-ink/70 md:block">
+      <span className="hidden text-center font-montserrat text-[12px] text-ink/70 lg:block">
         UX/UI
         <br />
         DESIGNER
@@ -278,7 +278,7 @@ function SideNav() {
         aria-controls="mobile-menu"
         aria-expanded={isMenuOpen}
         aria-label={isMenuOpen ? "Chiudi il menu" : "Apri il menu"}
-        className="relative grid size-10 place-items-center md:hidden"
+        className="relative grid size-10 place-items-center lg:hidden"
         onClick={() => setIsMenuOpen((open) => !open)}
         type="button"
       >
@@ -296,7 +296,7 @@ function SideNav() {
         />
       </button>
       <div
-        className={`absolute inset-x-0 top-full overflow-hidden border-b border-ink/20 bg-page text-ink transition-[max-height,opacity] duration-300 md:hidden ${isMenuOpen ? "max-h-96 opacity-100" : "pointer-events-none max-h-0 opacity-0"
+        className={`absolute inset-x-0 top-full overflow-hidden border-b border-ink/20 bg-page text-ink transition-[max-height,opacity] duration-300 lg:hidden ${isMenuOpen ? "max-h-96 opacity-100" : "pointer-events-none max-h-0 opacity-0"
           }`}
         id="mobile-menu"
       >
@@ -403,8 +403,8 @@ export default function App() {
   return (
     <div className="page-surface min-h-screen text-ink selection:bg-ink selection:text-page">
       <SideNav />
-      <main className="overflow-hidden pt-16 md:ml-24 md:pt-0">
-        <section className="relative flex min-h-[calc(100svh-4rem)] scroll-mt-16 flex-col justify-between overflow-hidden bg-intro px-5 py-4 text-page sm:px-10 md:min-h-svh md:scroll-mt-0 md:rounded-b-[10px] md:px-16 md:py-8 lg:px-24 lg:py-10" id="intro">
+      <main className="overflow-hidden pt-16 lg:ml-24 lg:pt-0">
+        <section className="relative flex min-h-[calc(100svh-4rem)] scroll-mt-16 flex-col justify-between overflow-hidden bg-intro px-5 py-4 text-page sm:px-10 lg:rounded-b-[10px] md:px-16 md:py-8 lg:min-h-svh lg:scroll-mt-0 lg:px-24 lg:py-10" id="intro">
           <div className="border-b border-page pb-4">
             <div className="overflow-hidden">
               <div className={`skills-track flex min-w-max items-center ${isSkillsPaused ? "skills-paused" : ""}`}>
@@ -441,7 +441,8 @@ export default function App() {
             <div className="flex items-center">
               <div className="min-w-0 flex-1 pr-6">
                 <ProfileIntro />
-<h1 className="font-anton mt-5 w-full max-w-none text-[72px] min-[375px]:text-[clamp(5.3125rem,17vw,8rem)] font-normal leading-[0.75] tracking-[0] text-accent md:mt-8 md:text-[max(5rem,min(12vw,calc((100svh-500px)/2)))] lg:text-[max(5rem,min(12vw,calc((100svh-520px)/2)))] min-[1360px]:text-[max(5rem,min(15vw,calc((100svh-480px)/1.5)))]">                  <span className="fg-inline-bold" data-fge-id="fge-237">SIMPLE, BETTER</span>
+                <h1 className="font-anton mt-5 w-full max-w-none text-[72px] min-[375px]:text-[clamp(5.3125rem,17vw,8rem)] font-normal leading-[0.75] tracking-[0] text-accent md:mt-8 md:text-[max(5rem,min(12vw,calc((100svh-500px)/2)))] lg:text-[max(5rem,min(12vw,calc((100svh-520px)/2)))] min-[1360px]:text-[max(5rem,min(15vw,calc((100svh-480px)/1.5)))]">
+                  <span className="fg-inline-bold" data-fge-id="fge-237">SIMPLE, BETTER</span>
                 </h1>
                 <p className="font-montserrat mt-6 max-w-2xl text-[18px] leading-relaxed text-[#fefefe] md:mt-10">
                   Nei miei progetti cerco di bilanciare al meglio usabilità ed estetica, per creare interfacce intuitive e visivamente coinvolgenti.
@@ -484,7 +485,7 @@ export default function App() {
         </section>
 
         <div className="h-10 bg-page" />
-        <section className="scroll-mt-16 bg-ink px-5 py-20 text-page sm:px-10 md:scroll-mt-0 md:rounded-[10px] md:px-16 md:py-28 lg:px-24" id="progetti">
+        <section className="scroll-mt-16 bg-ink px-5 py-20 text-page sm:px-10 lg:rounded-[10px] md:px-16 md:py-28 lg:scroll-mt-0 lg:px-24" id="progetti">
           <SectionTitle index="01 / Selected work">Progetti</SectionTitle>
           <div className="mb-6 flex items-center justify-end">
             <ScrollButtons target={projectsRef} />
@@ -541,7 +542,7 @@ export default function App() {
         </section>
 
         <div className="h-10 bg-page" />
-        <section className="scroll-mt-16 bg-ink px-5 py-20 text-page sm:px-10 md:scroll-mt-0 md:rounded-[10px] md:px-16 md:py-28 lg:px-24" id="about">
+        <section className="scroll-mt-16 bg-ink px-5 py-20 text-page sm:px-10 lg:rounded-[10px] md:px-16 md:py-28 lg:scroll-mt-0 lg:px-24" id="about">
           <SectionTitle index="02 / About me">Il mio percorso</SectionTitle>
           <div className="mb-6 flex justify-end min-[1627px]:hidden"><ScrollButtons target={storyRef} /></div>
           <div className="-mr-5 flex snap-x snap-mandatory gap-4 overflow-x-auto pb-6 pr-5 [scrollbar-width:none] sm:-mr-10 sm:pr-10 md:-mr-16 md:pr-16 lg:-mr-24 lg:pr-24" ref={storyRef} style={{ cursor: "grab" }} {...storyDrag}>
@@ -560,7 +561,7 @@ export default function App() {
         </section>
 
         <div className="h-10 bg-page" />
-        <section className="scroll-mt-16 bg-ink px-5 py-20 text-page sm:px-10 md:scroll-mt-0 md:rounded-[10px] md:px-16 md:py-28 lg:px-24" id="contattami">
+        <section className="scroll-mt-16 bg-ink px-5 py-20 text-page sm:px-10 lg:rounded-[10px] md:px-16 md:py-28 lg:scroll-mt-0 lg:px-24" id="contattami">
           <SectionTitle index="03 / Contatti">Connettiti con me</SectionTitle>
           <div className="grid gap-16 lg:grid-cols-[0.75fr_1.25fr]">
             <div>
@@ -597,7 +598,7 @@ export default function App() {
         </section>
 
         <div className="h-10 bg-page" />
-        <footer className="flex flex-col justify-between gap-4 bg-ink px-5 py-8 font-montserrat text-xs uppercase tracking-widest text-page/40 sm:flex-row sm:px-10 md:rounded-tl-[10px] md:rounded-tr-[10px] md:px-16 lg:px-24">
+        <footer className="flex flex-col justify-between gap-4 bg-ink px-5 py-8 font-montserrat text-xs uppercase tracking-widest text-page/40 sm:flex-row sm:px-10 lg:rounded-tl-[10px] lg:rounded-tr-[10px] md:px-16 lg:px-24">
           <span className="text-page">© 2026 — tutti i diritti riservati</span>
           <span className="text-page">Designed with intention</span>
         </footer>
