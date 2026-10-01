@@ -1,0 +1,130 @@
+@import url("https://fonts.googleapis.com/css2?family=Changa+One:ital@0;1&family=Changa:wght@400;500;600&display=swap");
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #1e1e1e;
+  --color-page: #efecca;
+  --color-intro: #1e1e1e;
+  --color-separator: #efecca;
+  --color-cta: #bdff09;
+  --color-accent: #bdff09;
+  --color-nav: #efecca;
+}
+
+@layer utilities {
+  .font-anton {
+    font-family: "Changa One", sans-serif;
+  }
+
+  .font-montserrat {
+    font-family: "Changa", sans-serif;
+  }
+
+  .page-surface {
+    background-color: var(--color-page);
+  }
+
+#intro :is(a, button):focus-visible {
+    outline: 2px solid var(--color-page);
+    outline-offset: 4px;
+  }
+}
+
+/* Custom scrollbar */
+html {
+  scrollbar-color: var(--color-ink) var(--color-page);
+  scrollbar-width: auto;
+}
+
+::-webkit-scrollbar {
+  width: 14px;
+  height: 14px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-page);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-ink);
+  border: 3px solid var(--color-ink);
+  border-radius: 999px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-ink);
+  border-color: var(--color-ink);
+}
+
+::-webkit-scrollbar-button {
+  color: var(--color-ink);
+  width: 14px;
+  height: 14px;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background: var(--color-page);
+    font-family: "Changa", sans-serif;
+  }
+
+  button,
+  a {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  button {
+    cursor: pointer;
+  }
+}
+
+@keyframes skills-marquee {
+  from {
+    transform: translateX(0);
+  }
+
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (max-width: 1280px) {
+  .skills-track {
+    animation: skills-marquee 22s linear infinite;
+  }
+
+  .skills-track.skills-paused {
+    animation-play-state: paused;
+  }
+
+  .skills-toggle {
+    display: inline-flex;
+  }
+}
+
+@media (min-width: 1281px) {
+  .skills-copy {
+    display: none;
+  }
+
+  .skills-toggle {
+    display: none;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .skills-track {
+    animation: none;
+  }
+}
+
+@media (min-width: 1360px) {
+  #intro h1 {
+    font-size: 15vw;
+  }
+}
