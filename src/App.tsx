@@ -1,13 +1,12 @@
 import { FormEvent, MouseEvent as ReactMouseEvent, ReactNode, useCallback, useEffect, useRef, useState } from "react";
-
-import heroDecorationMd from "./imports/hero-decoration-md.svg";
-import projectAllthebest from "./imports/project-allthebest.webp";
-import projectAcumen from "./imports/project-acumen.webp";
-import projectDna from "./imports/project-dna.webp";
-import projectUsertest from "./imports/project-usertest.webp";
-import projectPortfolio from "./imports/project-portfolio.png";
-
-const profilePhoto = "/1-1.png"; 
+const profilePhoto = "/1-1.png";
+const heroDecorationMd = "/hero-decoration-md.svg";
+const heroDecoration = "/hero-decoration.svg";
+const projectAllthebest = "/project-allthebest.webp";
+const projectAcumen = "/project-acumen.webp";
+const projectDna = "/project-dna.webp";
+const projectUsertest = "/project-usertest.webp";
+const projectPortfolio = "/project-portfolio.png";
 
 const CONTACT_EMAIL = "your.email@example.com";
 
@@ -250,24 +249,22 @@ function SideNav() {
           {navItems.map(([label, href]) => {
             const isActive = activeSection === href.slice(1);
             return (
-            <li key={href}>
-              <a
-                aria-current={isActive ? "location" : undefined}
-                className={`font-montserrat relative block rotate-180 text-base uppercase tracking-widest [writing-mode:vertical-rl] ${
-                  isActive ? "font-semibold text-ink" : "font-normal text-ink/50 hover:font-semibold hover:text-ink"
-                }`}
-                href={href}
-                onClick={(event) => navigateToSection(event, href)}
-              >
-                <span
-                  aria-hidden="true"
-                  className={`absolute -right-3 top-1/2 h-5 w-px -translate-y-1/2 bg-ink transition ${
-                    isActive ? "scale-y-100 opacity-100" : "scale-y-0 opacity-0"
-                  }`}
-                />
-                {label}
-              </a>
-            </li>
+              <li key={href}>
+                <a
+                  aria-current={isActive ? "location" : undefined}
+                  className={`font-montserrat relative block rotate-180 text-base uppercase tracking-widest [writing-mode:vertical-rl] ${isActive ? "font-semibold text-ink" : "font-normal text-ink/50 hover:font-semibold hover:text-ink"
+                    }`}
+                  href={href}
+                  onClick={(event) => navigateToSection(event, href)}
+                >
+                  <span
+                    aria-hidden="true"
+                    className={`absolute -right-3 top-1/2 h-5 w-px -translate-y-1/2 bg-ink transition ${isActive ? "scale-y-100 opacity-100" : "scale-y-0 opacity-0"
+                      }`}
+                  />
+                  {label}
+                </a>
+              </li>
             );
           })}
         </ul>
@@ -286,25 +283,21 @@ function SideNav() {
         type="button"
       >
         <span
-          className={`absolute h-px w-6 bg-ink transition duration-300 ${
-            isMenuOpen ? "rotate-45" : "-translate-y-1.5"
-          }`}
+          className={`absolute h-px w-6 bg-ink transition duration-300 ${isMenuOpen ? "rotate-45" : "-translate-y-1.5"
+            }`}
         />
         <span
-          className={`absolute h-px w-6 bg-ink transition duration-300 ${
-            isMenuOpen ? "opacity-0" : "opacity-100"
-          }`}
+          className={`absolute h-px w-6 bg-ink transition duration-300 ${isMenuOpen ? "opacity-0" : "opacity-100"
+            }`}
         />
         <span
-          className={`absolute h-px w-6 bg-ink transition duration-300 ${
-            isMenuOpen ? "-rotate-45" : "translate-y-1.5"
-          }`}
+          className={`absolute h-px w-6 bg-ink transition duration-300 ${isMenuOpen ? "-rotate-45" : "translate-y-1.5"
+            }`}
         />
       </button>
       <div
-        className={`absolute inset-x-0 top-full overflow-hidden border-b border-ink/20 bg-page text-ink transition-[max-height,opacity] duration-300 md:hidden ${
-          isMenuOpen ? "max-h-96 opacity-100" : "pointer-events-none max-h-0 opacity-0"
-        }`}
+        className={`absolute inset-x-0 top-full overflow-hidden border-b border-ink/20 bg-page text-ink transition-[max-height,opacity] duration-300 md:hidden ${isMenuOpen ? "max-h-96 opacity-100" : "pointer-events-none max-h-0 opacity-0"
+          }`}
         id="mobile-menu"
       >
         <nav aria-label="Navigazione mobile" className="px-5 py-5">
@@ -315,9 +308,8 @@ function SideNav() {
                 <li key={href}>
                   <a
                     aria-current={isActive ? "location" : undefined}
-                    className={`font-montserrat flex items-center justify-between py-4 text-sm font-normal uppercase tracking-widest transition ${
-                      isActive ? "text-ink font-semibold" : "text-ink"
-                    }`}
+                    className={`font-montserrat flex items-center justify-between py-4 text-sm font-normal uppercase tracking-widest transition ${isActive ? "text-ink font-semibold" : "text-ink"
+                      }`}
                     href={href}
                     onClick={(event) => {
                       navigateToSection(event, href);
@@ -391,27 +383,26 @@ export default function App() {
         <section className="relative flex h-[calc(100svh-4rem)] scroll-mt-16 flex-col justify-between overflow-hidden bg-intro px-5 py-4 text-page sm:px-10 md:h-svh md:scroll-mt-0 md:rounded-b-[10px] md:px-16 md:py-8 lg:px-24 lg:py-10" id="intro">
           <div className="border-b border-page pb-4">
             <div className="overflow-hidden">
-            <div className={`skills-track flex min-w-max items-center ${isSkillsPaused ? "skills-paused" : ""}`}>
-              {[0, 1].map((copy) => (
-                <div
-                  aria-hidden={copy === 1 ? "true" : undefined}
-                  className={`flex shrink-0 items-center gap-3 pr-3 ${copy === 1 ? "skills-copy" : ""}`}
-                  key={copy}
-                >
-                  {heroSkills.map((skill) => (
-                    <div className="flex items-center gap-3" key={skill}>
-                      <span className="font-montserrat text-xs uppercase tracking-widest text-page/80">{skill}</span>
-                      <span
-                        aria-hidden="true"
-                          className={`size-1 rounded-full bg-accent ${
-                          skill === heroSkills.at(-1) ? "min-[1281px]:hidden" : ""
-                        }`}
-                      />
-                    </div>
-                  ))}
-                </div>
-              ))}
-            </div>
+              <div className={`skills-track flex min-w-max items-center ${isSkillsPaused ? "skills-paused" : ""}`}>
+                {[0, 1].map((copy) => (
+                  <div
+                    aria-hidden={copy === 1 ? "true" : undefined}
+                    className={`flex shrink-0 items-center gap-3 pr-3 ${copy === 1 ? "skills-copy" : ""}`}
+                    key={copy}
+                  >
+                    {heroSkills.map((skill) => (
+                      <div className="flex items-center gap-3" key={skill}>
+                        <span className="font-montserrat text-xs uppercase tracking-widest text-page/80">{skill}</span>
+                        <span
+                          aria-hidden="true"
+                          className={`size-1 rounded-full bg-accent ${skill === heroSkills.at(-1) ? "min-[1281px]:hidden" : ""
+                            }`}
+                        />
+                      </div>
+                    ))}
+                  </div>
+                ))}
+              </div>
             </div>
             <button
               aria-pressed={isSkillsPaused}
