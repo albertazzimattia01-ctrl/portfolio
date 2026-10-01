@@ -1,11 +1,13 @@
 import { FormEvent, MouseEvent as ReactMouseEvent, ReactNode, useCallback, useEffect, useRef, useState } from "react";
-const profilePhoto = "/1-1.png"; 
+
 import heroDecorationMd from "./imports/hero-decoration-md.svg";
 import projectAllthebest from "./imports/project-allthebest.webp";
 import projectAcumen from "./imports/project-acumen.webp";
 import projectDna from "./imports/project-dna.webp";
 import projectUsertest from "./imports/project-usertest.webp";
 import projectPortfolio from "./imports/project-portfolio.png";
+
+const profilePhoto = "/1-1.png"; 
 
 const CONTACT_EMAIL = "your.email@example.com";
 
