@@ -466,7 +466,7 @@ export default function App() {
               {([
                 ["in", "LinkedIn", "https://www.linkedin.com/in/mattia-albertazzi", "Vai alla mia pagina di Linkedin", "Vai a Linkdedin"],
                 ["Be", "Behance", "https://www.behance.net/mattia-albertazzi", "Vai alla mia pagina di Behance", "Vai a Behance"],
-                ["CV", "Scarica CV", "/src/imports/CV.pdf", "Apri il mio Corriculum", "Apri il mio CV"],
+                ["CV", "Scarica CV", "/CV.pdf", "Apri il mio Curriculum", "Apri il mio CV"],
               ] as [string, string, string, string, string][]).map(([mark, key, href, ariaLabel, title]) => (
                 <a
                   aria-label={ariaLabel}
