@@ -8,7 +8,7 @@ import projectDna from "./imports/project-dna.webp";
 import projectUsertest from "./imports/project-usertest.webp";
 import projectPortfolio from "./imports/project-portfolio.png";
 
-const CONTACT_EMAIL = "your.email@example.com";
+const WEB3FORMS_KEY = "0b91a377-1c40-41b9-9cde-6f632c8559cd";
 
 const heroSkills = [
   "Discovery",
@@ -366,14 +366,38 @@ export default function App() {
   const projectsDrag = useDragScroll(projectsRef);
   const storyDrag = useDragScroll(storyRef);
   const [isSkillsPaused, setIsSkillsPaused] = useState(false);
+  const [formStatus, setFormStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
 
-  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    const data = new FormData(event.currentTarget);
+    const form = event.currentTarget;
+    const data = new FormData(form);
+
     const name = `${data.get("nome")} ${data.get("cognome")}`.trim();
-    const subject = encodeURIComponent(`Richiesta portfolio da ${name}`);
-    const body = encodeURIComponent(`Nome: ${name}\nEmail: ${data.get("email")}\n\n${data.get("messaggio")}`);
-    window.location.href = `mailto:${CONTACT_EMAIL}?subject=${subject}&body=${body}`;
+
+    data.append("access_key", WEB3FORMS_KEY);
+    data.append("name", name);
+    data.append("subject", `Richiesta portfolio da ${name}`);
+    data.append("from_name", "Portfolio");
+
+    setFormStatus("sending");
+
+    try {
+      const response = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        body: data,
+      });
+      const result = await response.json();
+
+      if (result.success) {
+        setFormStatus("success");
+        form.reset();
+      } else {
+        setFormStatus("error");
+      }
+    } catch {
+      setFormStatus("error");
+    }
   };
 
   return (
@@ -558,10 +582,17 @@ export default function App() {
               <label className="grid gap-2 text-[16px] uppercase tracking-widest text-page/60">Messaggio
                 <textarea className="min-h-32 resize-y border-0 border-b border-page/40 bg-transparent px-0 py-3 text-base normal-case tracking-normal text-page outline-none transition placeholder:text-[#fefefe]/50 hover:border-accent focus:border-accent" name="messaggio" placeholder="Raccontami del tuo progetto..." required />
               </label>
-              <button className="font-anton group mt-3 inline-flex w-fit items-center gap-5 rounded-full bg-cta px-8 py-4 text-base font-normal uppercase text-ink transition-all md:gap-0 md:hover:gap-5" type="submit">
-                Invia messaggio
+              <input type="checkbox" name="botcheck" className="hidden" tabIndex={-1} autoComplete="off" />
+              <button className="font-anton group mt-3 inline-flex w-fit items-center gap-5 rounded-full bg-cta px-8 py-4 text-base font-normal uppercase text-ink transition-all disabled:opacity-60 md:gap-0 md:hover:gap-5" disabled={formStatus === "sending"} type="submit">
+                {formStatus === "sending" ? "Invio in corso..." : "Invia messaggio"}
                 <span className="w-[18px] overflow-hidden transition-all duration-300 md:w-0 md:group-hover:w-[18px]"><ArrowIcon /></span>
               </button>
+              {formStatus === "success" && (
+                <p className="text-base text-[#fefefe]">Messaggio inviato, grazie! Ti risponderò presto.</p>
+              )}
+              {formStatus === "error" && (
+                <p className="text-base text-[#fefefe]">Qualcosa è andato storto. Riprova più tardi.</p>
+              )}
             </form>
           </div>
         </section>
