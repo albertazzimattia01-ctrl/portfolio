@@ -6,7 +6,8 @@ import projectAllthebest from "./imports/project-allthebest.webp";
 import projectAcumen from "./imports/project-acumen.webp";
 import projectDna from "./imports/project-dna.webp";
 import projectUsertest from "./imports/project-usertest.webp";
-import projectPortfolio from "./imports/project-portfolio.png";
+import projectPortfolio from "./imports/project-portfolio.webp";
+import projectEcoHotel from "./imports/eco-hotel.webp";
 
 const WEB3FORMS_KEY = "0b91a377-1c40-41b9-9cde-6f632c8559cd";
 
@@ -21,11 +22,12 @@ const heroSkills = [
 ];
 
 const projects = [
-  { number: "01", title: "AllTheBest | Redesign", type: "UX/UI Case Study", tools: ["FI", "AF"], image: projectAllthebest, alt: "Anteprima del progetto AllTheBest Redesign – riprogettazione dell'interfaccia UX/UI", href: "https://www.behance.net/gallery/256229397/AllTheBest-UXIU-Redesign" },
-  { number: "02", title: "Acumen Academy | Redesign", type: "UX/UI Case Study", tools: ["FI", "PS", "MZ"], image: projectAcumen, alt: "Anteprima del progetto Acumen Academy Redesign – riprogettazione dell'interfaccia UX/UI", href: "https://www.behance.net/gallery/256097191/Acumen-Academy-UXUI-Redesign" },
-  { number: "03", title: "DNA | Nuova Identità", type: "Brand Identity", tools: ["AI", "ID", "PS"], image: projectDna, alt: "Anteprima del progetto DNA Nuova Identità – progetto di brand identity", href: "https://www.behance.net/gallery/232060525/Brand-dentity-Rivista-scientifica" },
-  { number: "04", title: "Portfolio | HTML & CSS", type: "Web Development", tools: ["FI", "VSC"], image: projectPortfolio, imageBg: "#fef5ec", alt: "Anteprima del progetto Portfolio in HTML & CSS – sito portfolio sviluppato in HTML e CSS", href: "https://www.behance.net/gallery/240726351/Presentazione-Portfolio-UXUI-Design" },
-  { number: "05", title: "Conduzione Usert Test da Remoto", type: "Usability Test", tools: ["FI", "MZ"], image: projectUsertest, alt: "Anteprima del progetto Conduzione User Test da Remoto – test di usabilità", href: "https://www.behance.net/gallery/236847919/Redesigning-Acumen-Academy-Usability-Testing-Insights" },
+  { number: "01", title: "Eco Hotel | Wordpress Homepage", type: "Wordpress", tools: ["WP", "FI"], image: projectEcoHotel, alt: "Anteprima del progetto Eco Hotel Homepage – progettazione homepage demo in wordpress", href: "https://www.behance.net/gallery/257355689/Eco-Hotel-WordPress-Homepage-Demo?platform=direct" },
+  { number: "02", title: "AllTheBest | Redesign", type: "UX/UI Case Study", tools: ["FI", "AF"], image: projectAllthebest, alt: "Anteprima del progetto AllTheBest Redesign – riprogettazione dell'interfaccia UX/UI", href: "https://www.behance.net/gallery/256229397/AllTheBest-UXIU-Redesign" },
+  { number: "03", title: "Acumen Academy | Redesign", type: "UX/UI Case Study", tools: ["FI", "PS", "MZ"], image: projectAcumen, alt: "Anteprima del progetto Acumen Academy Redesign – riprogettazione dell'interfaccia UX/UI", href: "https://www.behance.net/gallery/256097191/Acumen-Academy-UXUI-Redesign" },
+  { number: "04", title: "DNA | Nuova Identità", type: "Brand Identity", tools: ["AI", "ID", "PS"], image: projectDna, alt: "Anteprima del progetto DNA Nuova Identità – progetto di brand identity", href: "https://www.behance.net/gallery/232060525/Brand-dentity-Rivista-scientifica" },
+  { number: "05", title: "Portfolio | HTML & CSS", type: "Web Development", tools: ["FI", "VSC"], image: projectPortfolio, imageBg: "#fef5ec", alt: "Anteprima del progetto Portfolio in HTML & CSS – sito portfolio sviluppato in HTML e CSS", href: "https://www.behance.net/gallery/240726351/Presentazione-Portfolio-UXUI-Design" },
+  { number: "06", title: "Conduzione Usert Test da Remoto", type: "Usability Test", tools: ["FI", "MZ"], image: projectUsertest, alt: "Anteprima del progetto Conduzione User Test da Remoto – test di usabilità", href: "https://www.behance.net/gallery/236847919/Redesigning-Acumen-Academy-Usability-Testing-Insights" },
 ];
 
 const story = [
